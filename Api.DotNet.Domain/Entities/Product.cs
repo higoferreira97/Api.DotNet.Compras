@@ -10,6 +10,7 @@ namespace Api.DotNet.Domain.Entities
         public string Name { get; private set; }
         public string CodErp { get; private set; }
         public decimal Price { get; private set; }
+        public ICollection<Purchase> Purchases { get; set; }
 
         public Product(string name,string codErp, decimal price)
         {
