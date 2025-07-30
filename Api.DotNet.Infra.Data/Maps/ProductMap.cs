@@ -27,7 +27,7 @@ namespace Api.DotNet.Infra.Data.Maps
 
             builder.HasMany(x => x.Purchases)
                 .WithOne(p => p.Product)
-                .HasForeignKey(p => x.ProductId);
+                .HasForeignKey(x => x.ProductId);
                 
         }
     }

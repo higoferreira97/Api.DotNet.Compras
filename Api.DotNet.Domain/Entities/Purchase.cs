@@ -1,8 +1,6 @@
 ﻿
 
 using Api.DotNet.Domain.Validations;
-using System.Diagnostics;
-using System.Xml.Linq;
 
 namespace Api.DotNet.Domain.Entities
 {
