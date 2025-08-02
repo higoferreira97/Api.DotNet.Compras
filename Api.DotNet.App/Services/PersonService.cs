@@ -1,13 +1,12 @@
 ﻿
-
-using Api.DotNet.Application.DTOs;
-using Api.DotNet.Application.DTOs.Validations;
-using Api.DotNet.Application.Services.Interfaces;
+using Api.DotNet.App.DTOs;
+using Api.DotNet.App.DTOs.Validations;
+using Api.DotNet.App.Services.Interfaces;
 using Api.DotNet.Domain.Entities;
 using Api.DotNet.Domain.Repositories;
 using AutoMapper;
 
-namespace Api.DotNet.Application.Services
+namespace Api.DotNet.App.Services
 {
 
     public class PersonService : IPersonService
@@ -24,7 +23,7 @@ namespace Api.DotNet.Application.Services
         public async Task<ResultService<PersonDTO>> CreateAsync(PersonDTO personDTO)
         {
             if (personDTO == null)
-                return ResultService.Fail<PersonDTO>("Objeto deve ser informado"); 
+                return ResultService.Fail<PersonDTO>("Objeto deve ser informado");
 
             var result = new PersonDTOValidation().Validate(personDTO);
             if (!result.IsValid)
@@ -34,5 +33,7 @@ namespace Api.DotNet.Application.Services
             var data = await _personRepository.CreateAsync(person);
             return ResultService.Ok<PersonDTO>(_mapper.Map<PersonDTO>(data));
         }
+
+        
     }
 }

@@ -1,13 +1,13 @@
 ﻿
 
-using Api.DotNet.Application.DTOs;
+using Api.DotNet.App.DTOs;
 using Api.DotNet.Domain.Entities;
 
-namespace Api.DotNet.Application.Services.Interfaces
+namespace Api.DotNet.App.Services.Interfaces
 {
     public interface IPersonService
     {
         Task<ResultService<PersonDTO>> CreateAsync(PersonDTO personDTO);
-        Task CreateAsync(Person person);
+        //Task CreateAsync(Person person);
     }
 }

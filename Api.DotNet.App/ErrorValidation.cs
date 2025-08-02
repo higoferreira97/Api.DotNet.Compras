@@ -1,6 +1,6 @@
 ﻿
 
-namespace Api.DotNet.Application
+namespace Api.DotNet.App
 {
     public class ErrorValidation
     {
@@ -8,4 +8,3 @@ namespace Api.DotNet.Application
         public string Message { get; set; }
     }
 }
- 

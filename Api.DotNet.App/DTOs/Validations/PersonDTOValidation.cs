@@ -2,7 +2,7 @@
 
 using FluentValidation;
 
-namespace Api.DotNet.Application.DTOs.Validations
+namespace Api.DotNet.App.DTOs.Validations
 {
     public class PersonDTOValidation : AbstractValidator<PersonDTO>
     {
@@ -25,4 +25,4 @@ namespace Api.DotNet.Application.DTOs.Validations
 
         }
     }
-}   
+}

@@ -1,10 +1,10 @@
 ﻿
 
-using Api.DotNet.Application.DTOs;
+using Api.DotNet.App.DTOs;
 using Api.DotNet.Domain.Entities;
 using AutoMapper;
 
-namespace Api.DotNet.Application.Mappings
+namespace Api.DotNet.App.Mappings
 {
     public class DtoToDomainMapping : Profile
     {
@@ -14,4 +14,3 @@ namespace Api.DotNet.Application.Mappings
         }
     }
 }
- 
