@@ -13,6 +13,7 @@ namespace Api.DotNet.Domain.Entities
         public Person Person { get; set; }
         public Product Product { get; set; }
 
+        public Purchase() { }
         public Purchase(int productId, int personId, DateTime? date)
         {
             Validation(productId, personId, date); 
@@ -30,7 +31,7 @@ namespace Api.DotNet.Domain.Entities
         {
             DomainValidationException.when(productId <0, "Id Produto deve ser informado!");
             DomainValidationException.when(personId <0 , "Id Pessoa deve ser informado!");
-            DomainValidationException.when(date.HasValue    , "Date da compra deve ser informada!");
+            DomainValidationException.when(!date.HasValue    , "Date da compra deve ser informada!");
 
             ProductId = productId;
             PersonId = personId;

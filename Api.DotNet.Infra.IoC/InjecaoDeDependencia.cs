@@ -8,7 +8,7 @@ using Api.DotNet.App.Mappings;
 using Api.DotNet.App.Services;
 using Api.DotNet.App.Services.Interfaces;
 
-
+ 
 
 
 namespace Api.DotNet.Infra.IoC
@@ -17,7 +17,7 @@ namespace Api.DotNet.Infra.IoC
     {
         public static IServiceCollection AddInfraEstrutura(this IServiceCollection servicos, IConfiguration configuracao)
         {
-            servicos.AddDbContext<ApplicationDbContext>(opcoes => opcoes.UseNpgsql(configuracao.GetConnectionString("")));
+            servicos.AddDbContext<ApplicationDbContext>(opcoes => opcoes.UseNpgsql(configuracao.GetConnectionString("DefaultConnection")));
 
             servicos.AddScoped<IPersonRepository, PersonRepository>();
             return servicos;
