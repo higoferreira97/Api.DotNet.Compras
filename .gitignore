@@ -363,6 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 /Api.DotNet.Api1/appsettings.json
 
-# Arquivo local com dados sensíveis
-appsettings.Development.json
+
 
