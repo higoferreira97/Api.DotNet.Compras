@@ -11,6 +11,7 @@ namespace Api.DotNet.App.Mappings
         public DomainToDtoMapping()
         {
             CreateMap<Person, PersonDTO>();
+            CreateMap<Product, ProductDTO>();
         }
     }
 }

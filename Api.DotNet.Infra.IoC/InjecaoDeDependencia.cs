@@ -20,6 +20,7 @@ namespace Api.DotNet.Infra.IoC
             servicos.AddDbContext<ApplicationDbContext>(opcoes => opcoes.UseNpgsql(configuracao.GetConnectionString("DefaultConnection")));
 
             servicos.AddScoped<IPersonRepository, PersonRepository>();
+            servicos.AddScoped<IProductRepository, ProductRepository>();
             return servicos;
         }
 
@@ -27,6 +28,7 @@ namespace Api.DotNet.Infra.IoC
         {
             object value = servicos.AddAutoMapper(typeof(DomainToDtoMapping));
             servicos.AddScoped<IPersonService, PersonService>();
+            servicos.AddScoped<IProductService, ProductService>();
             return servicos;
         }
     }
