@@ -21,6 +21,7 @@ namespace Api.DotNet.Infra.IoC
 
             servicos.AddScoped<IPersonRepository, PersonRepository>();
             servicos.AddScoped<IProductRepository, ProductRepository>();
+            servicos.AddScoped<IPurchaseRepository, PurchaseRepository>();
             return servicos;
         }
 
@@ -29,6 +30,7 @@ namespace Api.DotNet.Infra.IoC
             object value = servicos.AddAutoMapper(typeof(DomainToDtoMapping));
             servicos.AddScoped<IPersonService, PersonService>();
             servicos.AddScoped<IProductService, ProductService>();
+            servicos.AddScoped<IPurchaseService, PurchaseService>();
             return servicos;
         }
     }

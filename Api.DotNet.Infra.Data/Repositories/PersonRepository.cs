@@ -27,7 +27,7 @@ namespace Api.DotNet.Infra.Data.Repositories
         {
             _db?.Remove(person);
             await _db.SaveChangesAsync();
-            
+
         }
 
         public async Task EditAsync(Person person)
@@ -40,8 +40,29 @@ namespace Api.DotNet.Infra.Data.Repositories
         {
             return await _db.People.FirstOrDefaultAsync(x => x.Id == id);
         }
+        
 
-        public  async Task<ICollection<Person>> GetPeopleAsync() 
+        //public async Task<int> GetIdByDocumentAsync(string document)
+        //{
+        //    return (await _db.People.FirstOrDefaultAsync(x => x.Document == document))?.Id ?? 0;
+        //}
+
+        public async Task<int> GetIdByDocumentAsync(string document)
+        {
+            var person = await _db.People
+                                  .FirstOrDefaultAsync(x => x.Document == document);
+
+            if (person != null)
+            {
+                return person.Id;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public async Task<ICollection<Person>> GetPeopleAsync()
         {
             return await _db.People.ToListAsync();
         }

@@ -13,29 +13,28 @@ namespace Api.DotNet.Domain.Entities
         public Person Person { get; set; }
         public Product Product { get; set; }
 
-        public Purchase() { }
-        public Purchase(int productId, int personId, DateTime? date)
+    
+        public Purchase(int productId, int personId)
         {
-            Validation(productId, personId, date); 
+            Validation(productId, personId); 
         }
 
-        public Purchase(int id, int productId, int personId, DateTime? date)
+        public Purchase(int id, int productId, int personId)
         {
           
             DomainValidationException.when(id <0,"Id deve ser informado!");
             Id = id;
-            Validation(productId, personId, date);
+            Validation(productId, personId);
         }
 
-        private void Validation(int productId, int personId, DateTime?  date)
+        private void Validation(int productId, int personId)
         {
-            DomainValidationException.when(productId <0, "Id Produto deve ser informado!");
-            DomainValidationException.when(personId <0 , "Id Pessoa deve ser informado!");
-            DomainValidationException.when(!date.HasValue    , "Date da compra deve ser informada!");
-
+            DomainValidationException.when(productId <= 0, "Id Produto deve ser informado!");
+            DomainValidationException.when(personId <= 0 , "Id Pessoa deve ser informado!");
+            
             ProductId = productId;
             PersonId = personId;
-            Date = date.Value;
+            Date = DateTime.UtcNow;
 
         }
 

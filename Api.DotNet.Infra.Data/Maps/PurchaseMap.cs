@@ -21,12 +21,13 @@ namespace Api.DotNet.Infra.Data.Maps
                 .UseIdentityColumn();
 
             builder.Property(x => x.PersonId)
-                .HasColumnName("IdPessoa");
+                .HasColumnName("idpessoa");
 
             builder.Property(x => x.ProductId)
-                .HasColumnName("Idproduto");
+                .HasColumnName("idproduto");
 
             builder.Property(x => x.Date)
+                .HasColumnType("date")
                 .HasColumnName("datacompra");
 
             builder.HasOne(x => x.Person)
