@@ -35,12 +35,12 @@ namespace Api.DotNet.Infra.Data.Repositories
 
         public async Task<Purchase> GetByIdAsync(int id)
         {
-            var purchase = await _db.Purchases
+            return await _db.Purchases
                             .Include(x => x.Product)
                             .Include(x => x.Person)
                             .FirstOrDefaultAsync(x => x.Id == id);
 
-            return purchase;
+             
         }
 
         public async Task<ICollection<Purchase>> GetByPersonIdAsync(int personId)

@@ -10,7 +10,7 @@ namespace Api.DotNet.Api1.Controllers
     [ApiController]
     public class PurchaseController : ControllerBase
     {
-        private readonly  IPurchaseService _purchaseService;
+        private readonly IPurchaseService _purchaseService;
 
         public PurchaseController(IPurchaseService purchaseService)
         {
@@ -36,7 +36,38 @@ namespace Api.DotNet.Api1.Controllers
                 return BadRequest(result);
             }
 
-            
+
+        }
+
+        [HttpGet]
+        public async Task<ActionResult> GetAsync()
+        {
+
+            var result = await _purchaseService.GetAsync();
+
+            if (result.IsSucess)
+                return Ok(result);
+
+            return BadRequest(result);
+
+
+
+        }
+
+        [HttpGet]
+        [Route("{id}")]
+        public async Task<ActionResult> GetByIdAsync(int id)
+        {
+
+            var result = await _purchaseService.GetByIdAsync(id);
+
+            if (result.IsSucess)
+                return Ok(result);  
+
+            return BadRequest(result);
+
+
+
         }
     }
 }
