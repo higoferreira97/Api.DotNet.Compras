@@ -27,6 +27,14 @@ namespace Api.DotNet.Domain.Entities
             Validation(productId, personId);
         }
 
+        public void Edit(int id, int productId, int personId)
+        {
+
+            DomainValidationException.when(id < 0, "Id deve ser informado!");
+            Id = id;
+            Validation(productId, personId);
+        }
+
         private void Validation(int productId, int personId)
         {
             DomainValidationException.when(productId <= 0, "Id Produto deve ser informado!");
@@ -37,6 +45,8 @@ namespace Api.DotNet.Domain.Entities
             Date = DateTime.UtcNow;
 
         }
+
+
 
     }
 }
