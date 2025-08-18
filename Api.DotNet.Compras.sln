@@ -11,7 +11,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.DotNet.App", "Api.DotNe
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.DotNet.Infra.IoC", "Api.DotNet.Infra.IoC\Api.DotNet.Infra.IoC.csproj", "{C7A2C17E-6AC2-4AEB-A9B3-6ACB82FC716C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.DotNet.Api1", "Api.DotNet.Api1\Api.DotNet.Api1.csproj", "{D7883FE7-1452-4B87-B652-8900B7D6B5A1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Api.DotNet.Api", "Api.DotNet.Api1\Api.DotNet.Api.csproj", "{D7883FE7-1452-4B87-B652-8900B7D6B5A1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
