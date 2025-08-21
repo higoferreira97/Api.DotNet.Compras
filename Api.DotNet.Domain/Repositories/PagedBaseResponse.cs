@@ -1,6 +1,6 @@
 ﻿namespace Api.DotNet.Domain.Repositories
 {
-    public class PageBasicResponse<T>
+    public class PagedBaseResponse<T>
     {
         public List<T> Data { get; set; }
         public int TotalPages { get; set; }

@@ -2,6 +2,7 @@
 
 using Api.DotNet.App.DTOs;
 using Api.DotNet.Domain.Entities;
+using Api.DotNet.Domain.FiltersDb;
 
 namespace Api.DotNet.App.Services.Interfaces
 {
@@ -12,5 +13,6 @@ namespace Api.DotNet.App.Services.Interfaces
         Task<ResultService<PersonDTO>> GetByIdAsync( int id );
         Task<ResultService> UpdateAsync(PersonDTO personDTO);
         Task<ResultService> DeleteAsync(int id);
+        Task<ResultService<PagedBaseResponseDTO<PersonDTO>>> GetPagedAsync(PersonFilterDb persoFilterDb);
     }
 }

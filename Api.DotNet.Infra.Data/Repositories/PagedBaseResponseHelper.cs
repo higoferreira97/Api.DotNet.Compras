@@ -6,7 +6,7 @@ namespace Api.DotNet.Infra.Data.Repositories
     public static class PagedBaseResponseHelper
     {
         public static async Task<TResponse> GetResponseAsync<TResponse, T>(IQueryable<T>
-            query, PagedBaseRequest request) where TResponse : PageBasicResponse<T>, new()
+            query, PagedBaseRequest request) where TResponse : PagedBaseResponse<T>, new()
         {
             var response = new TResponse();
             var count = await query.CountAsync();

@@ -1,6 +1,7 @@
 ﻿
 
 using Api.DotNet.Domain.Entities;
+using Api.DotNet.Domain.FiltersDb;
 
 namespace Api.DotNet.Domain.Repositories
 {
@@ -12,5 +13,6 @@ namespace Api.DotNet.Domain.Repositories
         Task EditAsync(Person person);
         Task DeleteAsync(Person person);
         Task<int> GetIdByDocumentAsync(string document);
+        Task<PagedBaseResponse<Person>> GetPagedAsync(PersonFilterDb request);
     }
 }

@@ -1,6 +1,7 @@
 ﻿
 
 using Api.DotNet.Domain.Entities;
+using Api.DotNet.Domain.FiltersDb;
 using Api.DotNet.Domain.Repositories;
 using Api.DotNet.Infra.Data.Context;
 using Microsoft.EntityFrameworkCore;
@@ -60,6 +61,16 @@ namespace Api.DotNet.Infra.Data.Repositories
             {
                 return 0;
             }
+        }
+
+        public async Task<PagedBaseResponse<Person>> GetPagedAsync(PersonFilterDb request)
+        {
+            var people = _db.People.AsQueryable();
+            if (!string.IsNullOrEmpty(request.Name))
+                people = people.Where(x => x.Name.Contains(request.Name));
+
+            return  await PagedBaseResponseHelper
+                .GetResponseAsync<PagedBaseResponse<Person>, Person>(people, request);
         }
 
         public async Task<ICollection<Person>> GetPeopleAsync()

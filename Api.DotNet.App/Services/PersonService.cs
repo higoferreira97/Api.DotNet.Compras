@@ -3,6 +3,7 @@ using Api.DotNet.App.DTOs;
 using Api.DotNet.App.DTOs.Validations;
 using Api.DotNet.App.Services.Interfaces;
 using Api.DotNet.Domain.Entities;
+using Api.DotNet.Domain.FiltersDb;
 using Api.DotNet.Domain.Repositories;
 using AutoMapper;
 
@@ -58,8 +59,17 @@ namespace Api.DotNet.App.Services
             return ResultService.Ok(_mapper.Map<PersonDTO>(person));
         }
 
-        public async Task<ResultService> UpdateAsync(PersonDTO personDTO)
+        public async Task<ResultService<PagedBaseResponseDTO<PersonDTO>>> GetPagedAsync(PersonFilterDb persoFilterDb)
         {
+            var peoplePaged = await _personRepository.GetPagedAsync(persoFilterDb);
+            var  result = new PagedBaseResponseDTO<PersonDTO>
+                                    (peoplePaged.TotalRegisters,_mapper.Map<List<PersonDTO>>(peoplePaged.Data));
+
+            return ResultService.Ok(result);
+        }
+
+        public async Task<ResultService> UpdateAsync(PersonDTO personDTO)
+        {   
             if (personDTO == null)
                 return ResultService.Fail("Objeto deve ser informado!");
 
